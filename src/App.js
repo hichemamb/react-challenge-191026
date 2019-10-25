@@ -10,18 +10,18 @@ import Account from "./views/Account";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-          <Switch>
-            <Route path="/account">
-              <Account />
-            </Route>
-            <Route path="/">
-              <Inscription />
-            </Route>
-          </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+            <Switch>
+              <Route path="/account">
+                <Account />
+              </Route>
+              <Route path="/">
+                <Inscription />
+              </Route>
+            </Switch>
+      </Router>
+    </div>
   );
 }
 
