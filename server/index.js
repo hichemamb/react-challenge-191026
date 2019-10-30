@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const config = require('./config/dev.js');
+const env = require('./config/env.js');
 
-const routerHello = require('./routes/showHello');
+const routerAuth = require('./routes/auth');
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -18,10 +18,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text({ defaultCharset: 'utf-8' }));
 
-app.use('/', routerHello);
+app.use('/', routerAuth);
 
 
-app.listen(config.port, () => {
+app.listen(env.PORT, () => {
    console.log('L\'application écoute le port 8080 :)');
 });
 
