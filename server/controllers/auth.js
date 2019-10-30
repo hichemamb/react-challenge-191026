@@ -1,15 +1,15 @@
 const db = require('../config/db');
 
 exports.register = async (req, res) => {
-   const userInfos = req.body;
+   const {firstname, lastname, email, promotion, description, password, skills} = req.body;
    db.users.create({
-      firstname: userInfos.firstname,
-      lastname: userInfos.lastname,
-      email: userInfos.email,
-      promotion: userInfos.promotion,
-      description: userInfos.description,
-      password: userInfos.password,
-      skills: userInfos.skills
+      firstname,
+      lastname,
+      email,
+      promotion,
+      description,
+      password,
+      skills,
    }, {
       include: [db.skills]
    }).then(data => res.send(data));
