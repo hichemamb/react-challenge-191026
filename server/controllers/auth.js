@@ -1,3 +1,3 @@
-exports.showHello = (req, res) => {
-   res.send('Heeeeey ! Hello');
+exports.register = async (req, res) => {
+
 };
