@@ -5,6 +5,6 @@ const router = express.Router();
 const auth = require('../controllers/auth');
 
 
-router.get('/register', auth.register);
+router.post('/register', auth.register);
 
 module.exports = router;
