@@ -9,6 +9,7 @@ const passport = require('passport');
 
 const routerAuth = require('./routes/auth');
 const routerProfile = require('./routes/profile');
+const routerList = require('./routes/list');
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -27,6 +28,7 @@ require('./config/passport')(passport);
 
 app.use('/', routerAuth);
 app.use('/', routerProfile);
+app.use('/', routerList);
 
 db.sequelize.sync().then(() => {
    app.listen(env.PORT, () => {
