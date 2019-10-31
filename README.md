@@ -12,7 +12,7 @@ It's a project which intended to list the members of HETIC's with them informati
 ## Installation and use for client part
 
 - Clone the repository 
-- In terminal, cd into the directory you cloned into
+- In terminal, cd into the directory you cloned
 - Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
 ```bash
 npm install
