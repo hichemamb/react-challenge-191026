@@ -4,5 +4,6 @@ module.exports = {
    DATABASE_USERNAME: 'root',
    DATABASE_PASSWORD: 'password',
    DATABASE_HOST: 'localhost',
-   DATABASE_DIALECT: 'mysql'
+   DATABASE_DIALECT: 'mysql',
+   SECRET_OR_KEY: 'hichkey'
 };

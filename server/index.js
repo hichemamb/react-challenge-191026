@@ -4,6 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const env = require('./config/env.js');
 const db = require('./config/db');
+const passport = require('passport');
+
 
 const routerAuth = require('./routes/auth');
 
@@ -18,6 +20,9 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(bodyParser.text({defaultCharset: 'utf-8'}));
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 app.use('/', routerAuth);
 
