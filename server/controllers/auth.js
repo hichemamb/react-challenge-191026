@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const jwt = require('jsonwebtoken');
 const env = require('../config/env');
-const { hashPw, checkPw } = require('../config/crypt');
+const {hashPw, checkPw} = require('../config/crypt');
 exports.register = (req, res) => {
 
    const {firstname, lastname, email, promotion, description, password, skills} = req.body;
@@ -9,28 +9,28 @@ exports.register = (req, res) => {
    if (!email || !password || !firstname || !lastname) {
       res.send('Invalid details');
    } else {
-      db.users.findOne({where: {email}})
-      .then(user => {
-         if (user === null) {
-               db.users.create({
+      return db.sequelize.transaction(t => {
+         return db.users.findOne({where: {email}}, {transaction: t}).then(user => {
+            if (user === null) {
+               return db.users.create({
                   firstname,
                   lastname,
                   email,
                   promotion,
                   description,
-                  password:hashPw(password),
+                  password: hashPw(password),
                   skills,
                }, {
-                  include: [db.skills]
-               })
-                  .then(user => res.send(user))
-                  .catch((err) => {
-                     console.log('Failed to inserted data');
-                     console.log(err);
-                  });
+                  include: [db.skills],
+                  transaction: t
+               });
             } else {
                res.send('User with same email already exist');
             }
+         });
+      }).then(user => res.send(user))
+         .catch((err) => {
+            res.send(`SQL err: ${err}`);
          });
    }
 };
@@ -44,7 +44,7 @@ exports.login = (req, res) => {
    } else {
       db.users.findOne({where: {email}})
          .then(user => {
-               if (user !== null && user.email === email && checkPw(password,user.password)) {
+               if (user !== null && user.email === email && checkPw(password, user.password)) {
                   const payload = {
                      id: user.id
                   };
