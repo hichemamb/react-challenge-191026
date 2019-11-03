@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const jwt = require('jsonwebtoken');
 const env = require('../config/env');
-const { hashPw } = require('../config/crypt');
+const { hashPw, checkPw } = require('../config/crypt');
 exports.register = (req, res) => {
 
    const {firstname, lastname, email, promotion, description, password, skills} = req.body;
@@ -44,7 +44,7 @@ exports.login = (req, res) => {
    } else {
       db.users.findOne({where: {email}})
          .then(user => {
-               if (user !== null && user.email === email && user.password === password) {
+               if (user !== null && user.email === email && checkPw(password,user.password)) {
                   const payload = {
                      id: user.id
                   };

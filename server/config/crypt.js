@@ -7,3 +7,8 @@ exports.hashPw = password => {
     const hash = bcrypt.hashSync(password, salt);
     return hash;
 };
+
+//sync check
+exports.checkPw = async (currentPw, hashPw) => {
+    return bcrypt.compare(currentPw, hashPw);
+};
