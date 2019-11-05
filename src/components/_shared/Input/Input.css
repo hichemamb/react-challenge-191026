@@ -1,12 +1,13 @@
 .input {
   display: flex;
   flex-direction: column;
-  margin-bottom: 25px;
+  margin-top: 25px;
 }
 .input-label {
   color: #000000;
   font-size: 17px;
   font-weight: normal;
+  margin-bottom: 5px;
 }
 .input-item {
   width: 100%;
