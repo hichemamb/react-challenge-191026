@@ -35,6 +35,13 @@ nodemon index.js
 ```
 - The server will turn in http://localhost:8080/
 
+### BDD 
+
+- It work with a local MYSQL database, you have to do some configs
+  
+  - 1 - In /server/config/env.js change the database config to you're (this config will go to the sequelize instance in /server/config/db.js).
+  - 2 - Run MySQL wherever you want to (Terminal / MySQL Workbench / PhpMyAdmin ...) and create a DATABASE with the name you made in the environment variables in env.js.
+
 ## REST API
 - /register => register an user and store data to database (return data user object)
 - /login => authenticate an user and return a JWT to get authorization
