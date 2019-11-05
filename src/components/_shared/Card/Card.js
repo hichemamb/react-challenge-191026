@@ -6,7 +6,7 @@ const Card = ({title, width, children}) => {
       <div className="card" style={{width: `${width}`}}>
         <div className="card-header">
            <span className="card-header__title">{title}</span>
-           <div className="card-header__separation"></div>
+           <hr className="card-header__separation"></hr>
         </div>
          <div className="card-content">
             {children}

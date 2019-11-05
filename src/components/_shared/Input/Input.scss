@@ -3,11 +3,12 @@
 .input {
   display:flex;
   flex-direction: column;
-  margin-bottom: 25px;
+  margin-top: 25px;
   &-label {
     color: $black;
     font-size: 17px;
     font-weight: normal;
+    margin-bottom: 5px;
   }
   &-item {
     width: 100%;

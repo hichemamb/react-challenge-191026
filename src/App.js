@@ -6,13 +6,15 @@ import {
   Route
 } from "react-router-dom";
 import Register from "./components/Register/Register";
+import StudentsList from "./components/StudentsList/StudentsList";
 
 function App() {
   return (
     <div className="App">
       <Router>
             <Switch>
-              <Route path="/" component={Register}/>
+              <Route exact path="/" component={Register}/>
+              <Route exact path="/students-list" component={StudentsList}/>
             </Switch>
       </Router>
     </div>
