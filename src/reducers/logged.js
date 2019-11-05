@@ -5,6 +5,6 @@ const loggedReducer = (state = false, action) =>{
         default:
             return state;
     }
-}
+};
 
 export default loggedReducer;
