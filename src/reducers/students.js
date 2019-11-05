@@ -1,8 +1,8 @@
-const studentsReducer = (state=[], action) => {
+const studentsReducer = (state = [], action) => {
     switch(action.type) {
         default:
             return state
     }
-}
+};
 
 export default studentsReducer;

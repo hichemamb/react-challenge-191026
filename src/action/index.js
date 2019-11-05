@@ -1,6 +1,16 @@
-export const SIGN_IN = () => {
+import {SIGN_IN} from "../constants/action-types";
+import {HANDLE_CHANGE} from "../constants/action-types";
+
+export const login = () => {
     return {
-        // type => name of action
-        type:"SIGN_IN"
+        type: SIGN_IN
+    }
+};
+
+export const handleChange = (content, value) => {
+    return {
+        type: HANDLE_CHANGE,
+        [content]: value,
+        name: content
     }
 };

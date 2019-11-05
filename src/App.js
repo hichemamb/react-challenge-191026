@@ -1,24 +1,20 @@
 import React from 'react';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  //Link
+  Route
 } from "react-router-dom";
-import Inscription from "./views/Inscription";
-import Account from "./views/Account";
+import Register from "./components/Register/Register";
+import StudentsList from "./components/StudentsList/StudentsList";
 
 function App() {
   return (
     <div className="App">
       <Router>
             <Switch>
-              <Route path="/account">
-                <Account />
-              </Route>
-              <Route path="/">
-                <Inscription />
-              </Route>
+              <Route exact path="/" component={Register}/>
+              <Route exact path="/students-list" component={StudentsList}/>
             </Switch>
       </Router>
     </div>
