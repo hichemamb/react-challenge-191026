@@ -2,23 +2,16 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  //Link
+  Route
 } from "react-router-dom";
-import Inscription from "./views/Inscription";
-import Account from "./views/Account";
+import Register from "./components/Register/Register";
 
 function App() {
   return (
     <div className="App">
       <Router>
             <Switch>
-              <Route path="/account">
-                <Account />
-              </Route>
-              <Route path="/">
-                <Inscription />
-              </Route>
+              <Route path="/" component={Register}/>
             </Switch>
       </Router>
     </div>
