@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {SIGN_IN} from '../action';
+import {login} from '../action';
 
 const Inscription = () => {
     const logged = useSelector(state => state.logged );
