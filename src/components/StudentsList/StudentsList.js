@@ -3,6 +3,7 @@ import {useSelector, useDispatch, useStore} from 'react-redux';
 
 import './StudentsList.scss';
 import Header from '../_shared/Header/Header';
+import ItemStudents from '../_shared/ItemStudents/ItemStudents';
 
 
 const StudentsList = () => {
@@ -10,6 +11,8 @@ const StudentsList = () => {
    return (
       <div>
          <Header/>
+         <h1><strong>Liste des étudiants</strong></h1>
+         <ItemStudents/>
       </div>
    );
 };
