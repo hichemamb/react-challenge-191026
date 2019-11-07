@@ -7,7 +7,6 @@ import ItemStudents from '../_shared/ItemStudents/ItemStudents';
 
 
 const StudentsList = () => {
-
    return (
       <div>
          <Header/>
