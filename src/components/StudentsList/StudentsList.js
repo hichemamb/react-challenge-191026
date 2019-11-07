@@ -11,8 +11,10 @@ const StudentsList = () => {
    return (
       <div>
          <Header/>
-         <h1><strong>Liste des étudiants</strong></h1>
-         <ItemStudents/>
+         <section className="students">
+            <h1 className="students__title"><strong>Liste des étudiants</strong></h1>
+            <ItemStudents/>
+         </section>
       </div>
    );
 };

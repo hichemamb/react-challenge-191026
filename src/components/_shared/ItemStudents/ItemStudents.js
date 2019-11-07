@@ -3,14 +3,16 @@ import './ItemStudents.scss';
 
 const ItemStudents = ({firstname, lastname}) => {
    return (
-      <div className="students">
-        <ul className="students-list">
-           <li>
-                <span className="students-list__name">Hichem</span>
-                <span className="students-list__name">AMAR BENSABER</span>
-            </li>
-        </ul>
-      </div>
+       <div>
+         <div className="studentsItem">
+            <ul className="studentsItem-list">
+               <li>
+                  <span className="studentsItem-list__name">Hichem</span>
+                  <span className="studentsItem-list__name">AMAR BENSABER</span>
+               </li>
+            </ul>
+         </div>
+       </div>
    );
 };
 

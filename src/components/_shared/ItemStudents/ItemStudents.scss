@@ -1,0 +1,12 @@
+.studentsItem {
+    height: auto;
+    background-color: #F8F9FA;
+    border-radius: 5px;
+    padding: 11px 0 11px 32px;
+    margin-bottom: 20px;
+    &-list__name {
+        color: #000000;
+        font-weight: bold;
+        font-size: 17px;
+    }
+}
