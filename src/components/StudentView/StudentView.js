@@ -17,9 +17,9 @@ const studentData = {
 }
 
 const fullName = studentData.firstname + ' ' + studentData.lastname;
-
 const SkillsList = () => studentData.skills.map((skill, id) => <li key={id}>{skill}</li>)
-const haveADescription = () => studentData.description === '' ? false : true;
+const isDescriptionEmpty = () => studentData.description === '' ? true : false;
+
 const StudentView = () => {
     return (
         <div>
@@ -55,9 +55,9 @@ const StudentView = () => {
                 </Card>
                 <Card title="Cursus" width="75%">
                     {
-                        haveADescription ?
+                        isDescriptionEmpty() ? 
                             <p style={{opacity:0.5}}>Aucune déscription pour le moment</p> :
-                            <p>description</p>
+                            <p>{studentData.description}</p>
                     }
                 </Card>
             </div>
