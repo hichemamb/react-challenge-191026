@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Register from "./components/Register/Register";
 import StudentsList from "./components/StudentsList/StudentsList";
+import StudentsView from "./components/StudentView/StudentView";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Register}/>
               <Route exact path="/students-list" component={StudentsList}/>
+              <Route exact path="/student-view" component={StudentsView}/>
             </Switch>
       </Router>
     </div>
