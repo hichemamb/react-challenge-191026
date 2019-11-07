@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
 import StudentsList from "./components/StudentsList/StudentsList";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
       <Router>
             <Switch>
-              <Route exact path="/" component={Register}/>
+              <Route exact path="/register" component={Register}/>
+              <Route exact path="/" component={Login}/>
               <Route exact path="/students-list" component={StudentsList}/>
             </Switch>
       </Router>
