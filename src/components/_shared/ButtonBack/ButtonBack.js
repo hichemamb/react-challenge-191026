@@ -1,11 +1,12 @@
 import React from "react";
 import "./ButtonBack.scss";
+import {Link} from 'react-router-dom';
 
-const ButtonBack = ({label="retour"}) => {
+const ButtonBack = ({label="retour", to="/students-list"}) => {
     return (
-        <button>
+        <Link to={to}>
             {label}
-        </button>
+        </Link>
     )
 }
 export default ButtonBack;
