@@ -1,24 +1,23 @@
 import React from 'react';
 import './ItemStudents.scss';
+import IconUser from '../../../assets/img/icon-user.svg';
 
-const ItemStudents = ({firstname, lastname}) => {
-   const studentsName = ['Thomas Franja', 'Hichem AMAR BENSABER', 'Thomas Deruel'];
+const ItemStudents = () => {
+   const studentsName = ['Nancy Campbell','Sofia Hanna','Nino Lam','Maxime Charpentier','Mathieu Blok','Jay Dogo','Joe Texeira','Antoine Beaudoire','Thomas Franja', 'Hichem AMAR BENSABER', 'Thomas Deruel'];
    return (
        <div>
          <div className="studentsItem">
-            <ul className="studentsItem-list">
+            <ul>
                {studentsName.map((value, index) => {
                   return (
-                     <li>
-                        <span className="studentsItem-list__name" key={index}>{value}</span>
-                        {/* <span className="studentsItem-list__name">AMAR BENSABER</span> */}
-                     </li>
+                     <a href="/" className="studentsItem__link">
+                        <li className="studentsItem-list">
+                           <img className="studentsItem-list__icon" src={IconUser}/>
+                           <span className="studentsItem-list__name" key={index}>{value}</span>
+                        </li>
+                     </a>
                   )
                })}
-               {/* <li>
-                  <span className="studentsItem-list__name">Hichem</span>
-                  <span className="studentsItem-list__name">AMAR BENSABER</span>
-               </li> */}
             </ul>
          </div>
        </div>
