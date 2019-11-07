@@ -1,6 +1,6 @@
 @import "../style//variables.scss";
 
-button {
+a {
     width: 400px;
     height: 64px;
     background: $darkGray;
@@ -12,4 +12,8 @@ button {
     font-size: 16px;
     letter-spacing: 2px;
     cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
