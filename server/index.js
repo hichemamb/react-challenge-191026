@@ -6,10 +6,11 @@ const env = require('./config/env.js');
 const db = require('./config/db');
 const passport = require('passport');
 
-
+const fileUpload = require('express-fileupload');
 const routerAuth = require('./routes/auth');
 const routerProfile = require('./routes/profile');
 const routerList = require('./routes/list');
+const routerUpload = require('./routes/upload');
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(bodyParser.text({defaultCharset: 'utf-8'}));
+app.use(fileUpload());
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -29,6 +31,7 @@ require('./config/passport')(passport);
 app.use('/', routerAuth);
 app.use('/', routerProfile);
 app.use('/', routerList);
+app.use('/', routerUpload);
 
 db.sequelize.sync().then(() => {
    app.listen(env.PORT, () => {
