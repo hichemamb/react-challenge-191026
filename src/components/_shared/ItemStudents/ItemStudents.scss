@@ -1,0 +1,16 @@
+.studentsItem {
+    &__icon {
+        position: absolute;
+        left: -40px;
+        top: 11px;
+        bottom: 0;
+        right: 0px;
+        visibility: hidden;
+    }
+
+    &__name {
+        color: #000000;
+        font-weight: bold;
+        font-size: 17px;
+    }
+}
