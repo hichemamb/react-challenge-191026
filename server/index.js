@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const env = require('./config/env.js');
 const db = require('./config/db');
 const passport = require('passport');
-const fileUpload = require('express-fileupload');
 
+const fileUpload = require('express-fileupload');
 const routerAuth = require('./routes/auth');
 const routerProfile = require('./routes/profile');
 const routerList = require('./routes/list');
@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(bodyParser.text({defaultCharset: 'utf-8'}));
 app.use(fileUpload());
+
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
