@@ -1,0 +1,83 @@
+@import "../_shared/style/variables.scss";
+
+.studentview{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+    &-profil {
+        display:flex;
+        margin-top: 16px;
+        &-img{
+            margin-right: 32px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid $black;
+            border-radius: 50%;
+            overflow: hidden;
+            &-container {
+                border: 3px solid transparent;
+                width: calc(100% - 6px);
+                height: calc(100% - 6px);
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        &-container {
+            display:flex;
+            flex-direction: column;
+            width: calc(100% - 132px);
+            &-nameandpromo{
+                margin-bottom: 24px;
+                h1 {
+                    font-size: 24px;
+                    color: $greenHetic;
+                }
+                p {
+                    font-size: 12px;
+                    margin-top: 6px;
+                    text-transform: uppercase;
+                }
+            }
+            &-moreinfo{
+                display:flex;
+                width: 80%;
+                justify-content: space-between;
+                h2 {
+                    font-size: 18px;
+                }
+                p {
+                    color: $darkGray;
+                    margin: 8px 0;
+                }
+                &-skills {
+                    ul{
+                        display:flex;
+                        margin-top: 8px;
+                        flex-wrap: wrap;
+                        li {
+                            list-style-type: none;
+                            margin-right: 8px;
+                            color: $darkGray;
+                            &:before{
+                                content: '#';
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &_btn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

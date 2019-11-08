@@ -7,6 +7,7 @@ import './Register.scss';
 import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import Input from '../_shared/Input/Input';
+import PictureUploader from '../_shared/PictureUploader/PictureUploader';
 
 const Register = () => {
 
@@ -17,7 +18,11 @@ const Register = () => {
    const onChange = event => {
      dispatch(handleChange(event.target.name, event.target.value))
    };
-
+   // TODO, broken :/
+   // const onUpload = event => {
+   //    dispatch(handleChange(event.target.name, event.target.files[0]))
+   //    console.log(userInfos)
+   //  };
    const onRegister = () => {
       register(store.getState().userInfos);
    };
@@ -27,6 +32,7 @@ const Register = () => {
          <Header/>
          <div className="register">
             <Card title="Profil étudiant" width="75%">
+               <PictureUploader />
                <Input entitled="Nom" placeholder="Nom" value={userInfos.lastname} name="lastname" onChangeValue={onChange} type="text" width="200px"/>
                <Input entitled="Prénom" placeholder="Prénom" value={userInfos.firstname} name="firstname" onChangeValue={onChange} etype="text" width="200px"/>
                <Input entitled="Email" placeholder="prénom.nom@hetic.net" value={userInfos.email} name="email" onChangeValue={onChange} type="email" width="200px"/>
