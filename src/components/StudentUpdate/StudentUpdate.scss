@@ -1,3 +1,5 @@
+@import "../_shared/style/variables.scss";
+
 .studentupdate {
     display: flex;
     flex-direction: column;
@@ -20,6 +22,12 @@
         &__gender {
             width: 20%;
             min-width: 200px;
+            input {
+                margin-right: 4px;
+                &:not(:first-of-type){
+                    margin-left: 12px;
+                }
+            }
         }
     }
     h2 {
@@ -40,6 +48,29 @@
             height: auto;
             font-size: 14px;
             resize: none;
+        }
+    }
+    &-other {
+        display: flex;
+        align-items: flex-end;
+        &__plus {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 8px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            background: $mediumGray;
+            color: $white;
+            font-size: 18px;
+            font-weight: bolder;
+            &:hover {
+                background: $greenHetic;
+            }
         }
     }
 }

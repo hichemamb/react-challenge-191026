@@ -5,8 +5,11 @@ import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import ButtonBack from '../_shared/ButtonBack/ButtonBack';
 import Input from "../_shared/Input/Input";
+import Chips from "../_shared/Chips/Chips";
 import { useSelector, useDispatch, useStore } from 'react-redux';
 import { handleChange } from '../../action/index';
+
+const skillsList = ['vue', 'react', 'php', 'swift', 'kotlin', 'docker', 'javascript', 'css', 'html'];
 
 const StudentUpdate = () => {
     const userInfos = useSelector(state => state.userInfos);
@@ -63,6 +66,17 @@ const StudentUpdate = () => {
                 </Card>
                 <Card title="Compétences" width="75%" UpdateComponent={buttonUpdate}>
                     <h2>Ajouter des compétences</h2>
+                    {
+                        skillsList.map((skill, id) => {
+                            return (
+                                <Chips name={skill} />
+                            )
+                        })
+                    }
+                    <div className="studentupdate-other">
+                        <Input placeholder="Autre" value={null} name={userInfos.lastname} onChangeValue={onChange} type="text" width="200px" />
+                        <button className="studentupdate-other__plus">+</button>
+                    </div>
                 </Card>
                 <ButtonBack />
             </div>
