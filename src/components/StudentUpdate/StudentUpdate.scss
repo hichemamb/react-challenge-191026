@@ -1,0 +1,76 @@
+@import "../_shared/style/variables.scss";
+
+.studentupdate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    margin-top: 48px;
+    margin-bottom: 72px;
+    &-profil {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        min-height: 320px;
+        &-nameandemail {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 33%;
+            min-width: 200px;
+        }
+        &__gender {
+            width: 20%;
+            min-width: 200px;
+            input {
+                margin-right: 4px;
+                &:not(:first-of-type){
+                    margin-left: 12px;
+                }
+            }
+        }
+    }
+    h2 {
+        font-size: 16px;
+        margin-bottom: 24px;
+        margin-top: 8px;
+    }
+    &__cursus {
+        width: 100%;
+        height: auto;
+        textarea {
+            width: 100%;
+            padding: 0;
+            outline: none;
+            border: none;
+            background: transparent;
+            min-height: 80px;
+            height: auto;
+            font-size: 14px;
+            resize: none;
+        }
+    }
+    &-other {
+        display: flex;
+        align-items: flex-end;
+        &__plus {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 8px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            background: $mediumGray;
+            color: $white;
+            font-size: 18px;
+            font-weight: bolder;
+            &:hover {
+                background: $greenHetic;
+            }
+        }
+    }
+}
