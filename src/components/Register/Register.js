@@ -7,6 +7,7 @@ import './Register.scss';
 import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import Input from '../_shared/Input/Input';
+import Select from '../_shared/Select/Select';
 import PictureUploader from '../_shared/PictureUploader/PictureUploader';
 
 const Register = () => {
@@ -49,8 +50,7 @@ const Register = () => {
             <Card title="Compétences" width="75%">
                {userInfos.skills.map((element, index) =>
                   <div key={index} className="register-skills">
-                     <Input entitled="Intitulé" placeholder="Intitulé" value={element.skill} name="skill" onChangeValue={onChangeWithIndex(index)} type="text" width="200px"/>
-                     <Input entitled="Note" placeholder="Note" value={element.mark} name="mark" onChangeValue={onChangeWithIndex(index)} type="text" width="200px"/>
+                     <Select skillValue={element.skill} markValue={element.mark} onChangeValue={onChangeWithIndex(index)} width="200px"/>
                   </div>
                )}
                <button onClick={onAddSkill}>Ajouter une nouvelle compétence</button>
