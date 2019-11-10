@@ -1,16 +1,25 @@
-import {SIGN_IN} from "../constants/action-types";
-import {HANDLE_CHANGE} from "../constants/action-types";
-
-export const login = () => {
-    return {
-        type: SIGN_IN
-    }
-};
+import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_SKILL} from "../constants/action-types";
 
 export const handleChange = (content, value) => {
     return {
         type: HANDLE_CHANGE,
         [content]: value,
         name: content
+    }
+};
+
+export const handleChangeWithIndex = (content, value, index) => {
+    return {
+        type: HANDLE_CHANGE_INDEX,
+        [content]: value,
+        name: content,
+        index,
+    }
+};
+
+export const addSkill = (elementToAdd) => {
+    return {
+        type: ADD_SKILL,
+        payload: elementToAdd
     }
 };

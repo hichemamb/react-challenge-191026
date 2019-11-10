@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch, useStore} from 'react-redux';
-import {handleChange} from '../../action/index';
+import {handleChange, handleChangeWithIndex, addSkill} from '../../action/index';
 import {register} from '../../utils/api';
 
 import './Register.scss';
@@ -18,11 +18,15 @@ const Register = () => {
    const onChange = event => {
      dispatch(handleChange(event.target.name, event.target.value))
    };
-   // TODO, broken :/
-   // const onUpload = event => {
-   //    dispatch(handleChange(event.target.name, event.target.files[0]))
-   //    console.log(userInfos)
-   //  };
+
+   const onChangeWithIndex = index => event => {
+      dispatch(handleChangeWithIndex(event.target.name, event.target.value, index))
+   };
+
+   const onAddSkill = () => {
+      dispatch(addSkill({skill:"", mark:""}))
+   };
+
    const onRegister = () => {
       register(store.getState().userInfos);
    };
@@ -41,6 +45,15 @@ const Register = () => {
             </Card>
             <Card title="Cursus" width="75%">
                <Input entitled="Ecrivez quelques lignes sur votre parcours" placeholder="Ici d'un baccalauréat scientifique, je ..." value={userInfos.description} name="description" onChangeValue={onChange} type="textarea" width="400px"/>
+            </Card>
+            <Card title="Compétences" width="75%">
+               {userInfos.skills.map((element, index) =>
+                  <div key={index} className="register-skills">
+                     <Input entitled="Intitulé" placeholder="Intitulé" value={element.skill} name="skill" onChangeValue={onChangeWithIndex(index)} type="text" width="200px"/>
+                     <Input entitled="Note" placeholder="Note" value={element.mark} name="mark" onChangeValue={onChangeWithIndex(index)} type="text" width="200px"/>
+                  </div>
+               )}
+               <button onClick={onAddSkill}>Ajouter une nouvelle compétence</button>
             </Card>
             <button onClick={onRegister}>ENREGISTRER</button>
          </div>
