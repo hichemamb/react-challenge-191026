@@ -3,45 +3,38 @@ import './PictureUploader.scss';
 
 
 const PictureUploader = () => {
-    // response of file
-    // File
-    let [file, setFile] = useState(null)
-    // response of uploadedFile
-    // {
-    //     fileName: STRING
-    //     filePath: STRING
-    // }
-    let [uploadedFile, setUploadedFile] = useState({})
-    let [loading, setLoading] = useState(false)
 
-    const isEmpty = (obj) => Object.entries(obj).length === 0 && obj.constructor === Object
-    const classLoading = () => {if(loading) return 'isLoading'}
+    let [file, setFile] = useState(null);
+
+    let [uploadedFile, setUploadedFile] = useState({});
+    let [loading, setLoading] = useState(false);
+
+    const isEmpty = (obj) => Object.entries(obj).length === 0 && obj.constructor === Object;
+    const classLoading = () => {if(loading) return 'isLoading'};
 
     const onChange = event => {
         setFile(event.target.files[0])
-        //onChangeValue(event)
     };
 
     useEffect(() => {
         if (file) {
-            setLoading(true)
-            //generate FormData
-            const formData = new FormData()
-            formData.append('picture', file)
+            setLoading(true);
+            const formData = new FormData();
+            formData.append('picture', file);
             fetch('http://localhost:8080/upload',{
                 method: 'POST',
                 body: formData,
             })
-            .then(res=>res.json())
-                .then(res=>{
-                    setUploadedFile(res)
+            .then(res => res.json())
+                .then(res => {
+                    setUploadedFile(res);
                     setLoading(false)
                 })
-            .catch(err=>{
+            .catch(()=>{
                 setLoading(false)
             })
         }
-    }, [file])
+    }, [file]);
     return (
         <div className="upload">
             {loading &&
@@ -58,7 +51,7 @@ const PictureUploader = () => {
                     />:
                     <div className="upload-selectedContainer">
                         <p>Modifier</p>
-                        <img className="upload-selectedContainer-selected" name="picture" src={process.env.PUBLIC_URL + uploadedFile.filePath} alt="selected"/>
+                        <img className="upload-selectedContainer-selected" name="picture" src={uploadedFile} alt="selected"/>
                     </div>
             }
             <input  className="upload-input" name="picture" type="file" onChange={onChange}></input>
