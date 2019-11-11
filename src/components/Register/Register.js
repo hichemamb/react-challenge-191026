@@ -53,7 +53,7 @@ const Register = () => {
                      <Select skillValue={element.skill} markValue={element.mark} onChangeValue={onChangeWithIndex(index)} width="200px"/>
                   </div>
                )}
-               <button onClick={onAddSkill}>Ajouter une nouvelle compétence</button>
+               <button className="register-skills__button" onClick={onAddSkill}>Ajouter une nouvelle compétence</button>
             </Card>
             <button onClick={onRegister}>ENREGISTRER</button>
          </div>
