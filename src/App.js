@@ -8,6 +8,8 @@ import {
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import StudentsList from "./components/StudentsList/StudentsList";
+import StudentView from "./components/StudentView/StudentView";
+import StudentUpdate from "./components/StudentUpdate/StudentUpdate";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
             <Switch>
               <Route exact path="/register" component={Register}/>
               <Route exact path="/" component={Login}/>
+              <Route exact path="/student/profil" component={StudentUpdate}/>
               <Route exact path="/students-list" component={StudentsList}/>
+              <Route exact path="/student-view" component={StudentView}/>
             </Switch>
       </Router>
     </div>

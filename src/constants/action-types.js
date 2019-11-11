@@ -1,2 +1,3 @@
-export const SIGN_IN = "SIGN_IN";
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
+export const HANDLE_CHANGE_INDEX = "HANDLE_CHANGE_INDEX";
+export const ADD_SKILL = "ADD_SKILL";
