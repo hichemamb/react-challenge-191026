@@ -25,3 +25,12 @@ exports.studentsList = () => {
       console.log(err)
    });
 };
+
+exports.uploadPicture= (formData) => {
+   return fetch('http://localhost:8080/upload',{
+      method: 'POST',
+      body: formData,
+   }).then(res => {
+      return res.json();
+   })
+};

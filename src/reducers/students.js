@@ -1,6 +1,7 @@
-import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_SKILL} from '../constants/action-types';
+import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL} from '../constants/action-types';
 
 const userInfos = {
+   picture: "",
    lastname: "",
    firstname: "",
    email: "",
@@ -24,6 +25,12 @@ const studentsReducer = (state = userInfos, action) => {
          state.skills[action.index][action.name] = action[actualNameIndex];
          return {
            ...state,
+         };
+
+      case ADD_PICTURE:
+         return {
+            ...state,
+            picture: action.payload
          };
 
       case ADD_SKILL:

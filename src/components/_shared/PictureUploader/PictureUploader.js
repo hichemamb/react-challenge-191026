@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import './PictureUploader.scss';
-
+import {uploadPicture} from '../../../utils/api';
+import {addPicture} from '../../../action/index';
 
 const PictureUploader = () => {
 
-    let [file, setFile] = useState(null);
+    const userInfos = useSelector(state => state.userInfos);
+    const dispatch = useDispatch();
 
-    let [uploadedFile, setUploadedFile] = useState({});
+    let [file, setFile] = useState(null);
     let [loading, setLoading] = useState(false);
 
-    const isEmpty = (obj) => Object.entries(obj).length === 0 && obj.constructor === Object;
+    const isEmpty = (string) => string === "";
     const classLoading = () => {if(loading) return 'isLoading'};
 
     const onChange = event => {
@@ -21,13 +24,9 @@ const PictureUploader = () => {
             setLoading(true);
             const formData = new FormData();
             formData.append('picture', file);
-            fetch('http://localhost:8080/upload',{
-                method: 'POST',
-                body: formData,
-            })
-            .then(res => res.json())
+            uploadPicture(formData)
                 .then(res => {
-                    setUploadedFile(res);
+                    dispatch(addPicture(res));
                     setLoading(false)
                 })
             .catch(()=>{
@@ -42,7 +41,7 @@ const PictureUploader = () => {
                     <div className="upload-loadingContainer-img"></div>
                 </div>
             }
-            {isEmpty(uploadedFile)?
+            {isEmpty(userInfos.picture)?
                 <img 
                     className={"upload-default "+ classLoading()}
                     name="picture"
@@ -51,7 +50,7 @@ const PictureUploader = () => {
                     />:
                     <div className="upload-selectedContainer">
                         <p>Modifier</p>
-                        <img className="upload-selectedContainer-selected" name="picture" src={uploadedFile} alt="selected"/>
+                        <img className="upload-selectedContainer-selected" name="picture" src={userInfos.picture} alt="selected"/>
                     </div>
             }
             <input  className="upload-input" name="picture" type="file" onChange={onChange}></input>
