@@ -46,6 +46,8 @@ nodemon index.js
 - /register => register an user and store data to database (return data user object)
 - /login => authenticate an user and return a JWT to get authorization
 - /profile => return data user object 
+- /list => return students
+- /list/:id => return student by id
 
 ## Project Team
 

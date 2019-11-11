@@ -9,3 +9,15 @@ exports.getStudentsList = (req, res) => {
         res.json(users)
     })
 };
+
+exports.getStudentById = (req, res) => {
+    const {id} = req.params;
+    db.users.findOne({
+        where:{id},
+        attributes:['id','firstname','lastname','email','promotion'],
+        include:[db.skills]
+    })
+    .then(users=>{
+        res.json(users)
+    })
+};
