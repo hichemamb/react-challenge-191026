@@ -1,4 +1,4 @@
-const auth = require("./auth");
+const { getToken } = require("./token");
 
 exports.register = (userData) => {
    return fetch('http://localhost:8080/register', {
@@ -17,7 +17,7 @@ exports.studentsList = () => {
       headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
-         'Authorization': 'Bearer ' + auth.getToken()
+         'Authorization': 'Bearer ' + getToken()
       },
    }).then(res => {
       return res.json();
