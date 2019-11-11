@@ -8,6 +8,7 @@ import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import Input from '../_shared/Input/Input';
 import Select from '../_shared/Select/Select';
+import GreenButton from '../_shared/GreenButton/GreenButton';
 import PictureUploader from '../_shared/PictureUploader/PictureUploader';
 
 const Register = () => {
@@ -55,7 +56,7 @@ const Register = () => {
                )}
                <button className="register-skills__button" onClick={onAddSkill}>Ajouter une nouvelle compétence</button>
             </Card>
-            <button onClick={onRegister}>ENREGISTRER</button>
+            <GreenButton clickToRegister={onRegister} content="ENREGISTRER" redirection="/login" width="250px"/>
          </div>
       </div>
    );

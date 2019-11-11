@@ -1,111 +1,132 @@
 @import "../style/variables";
 
 .upload {
+  margin-top: 30px;
+  &-label {
+    color: $black;
+    font-size: 17px;
+    font-weight: normal;
+  }
+
+  .upload-item {
     width: 100px;
     height: 100px;
+    margin-bottom: 50px;
+    margin-top: 20px;
     border: 2px solid black;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     transition: background 250ms ease;
-    &:hover{
-        background: rgba(0,0,0,0.1);
-        p{
-            opacity: 1;
-        }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+
+      p {
+        opacity: 1;
+      }
     }
+
     &-loadingContainer {
-        position: absolute;
-        z-index: 9999;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        display: flex;
-        align-items:center;
-        justify-content: center;
-        &-img{
-            height: 24px;
-            width: 24px;
-            color: #5a5a5a;
-            display: inline-block;
-            border: 5px solid;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: rotate 1s linear infinite; 
-        }
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-img {
+        height: 24px;
+        width: 24px;
+        color: #5a5a5a;
+        display: inline-block;
+        border: 5px solid;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: rotate 1s linear infinite;
+      }
     }
+
     &-default {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 21px;
+      opacity: 1;
+      transition: opacity 100ms ease;
+
+      &.isLoading {
+        opacity: 0;
+      }
+    }
+
+    &-selectedContainer {
+      position: relative;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+
+      &-selected {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
-        width: 24px;
-        height: 21px;
-        opacity: 1;
-        transition: opacity 100ms ease;
-        &.isLoading {
-            opacity: 0;
-        }
-    }
-    &-selectedContainer{
-        position: relative;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 10;
-        width:100%;
-        height: 100%;
-        &-selected {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            max-width:100%;
-            min-height:100%;
-            z-index: 2;
-        }
-        p {
-            position: absolute;
-            transition: all 300ms ease;
-            padding: 4px;
-            z-index: 3;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            font-size: 16px;
-            font-weight: bold;
-            color:$greenHetic;
-            text-transform: uppercase;
-            opacity: 0;
-        }
-    }
-    &-input{
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        min-height: 100%;
+        z-index: 2;
+      }
+
+      p {
         position: absolute;
-        cursor: pointer;
-        z-index: 50;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        padding: 0;
-        margin: 0;
-        border-radius: 50%;
+        transition: all 300ms ease;
+        padding: 4px;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+        font-weight: bold;
+        color: $greenHetic;
+        text-transform: uppercase;
         opacity: 0;
+      }
     }
+
+    &-input {
+      position: absolute;
+      cursor: pointer;
+      z-index: 50;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 0;
+      margin: 0;
+      border-radius: 50%;
+      opacity: 0;
+    }
+  }
 }
 
 @keyframes rotate {
-    0% {
-      transform: rotate(0); 
-    }
-    100% {
-      transform: rotate(360deg); 
-    } 
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 

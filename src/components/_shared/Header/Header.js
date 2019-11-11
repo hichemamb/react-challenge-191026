@@ -9,7 +9,7 @@ const Header = () => {
             <img className="header-left__logo" src={Logo} alt="Hetic Logo"/>
          </div>
          <div className="header-right">
-           <h1 className="header-right__title">HOMO</h1>
+            <h1 className="header-right__title">HETIC STUDENTS</h1>
          </div>
       </div>
    );
