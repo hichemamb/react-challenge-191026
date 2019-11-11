@@ -18,4 +18,4 @@ class Auth {
         localStorage.removeItem('token');
     }
 }
-export default new Auth();
+module.exports = new Auth();
