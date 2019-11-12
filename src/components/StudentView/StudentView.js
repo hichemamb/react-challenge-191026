@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./StudentView.scss";
-
+import { useParams } from "react-router-dom";
 import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import ButtonBack from '../_shared/ButtonBack/ButtonBack';
@@ -21,6 +21,12 @@ const SkillsList = () => studentData.skills.map((skill, id) => <li key={id}>{ski
 const isDescriptionEmpty = () => studentData.description === '' ? true : false;
 
 const StudentView = () => {
+    let { id } = useParams();
+    useEffect(() => {
+        // TODO
+        // make your request HERE :)
+        console.log(id)
+    })
     return (
         <div>
             <Header />
@@ -55,8 +61,8 @@ const StudentView = () => {
                 </Card>
                 <Card title="Cursus" width="75%">
                     {
-                        isDescriptionEmpty() ? 
-                            <p style={{opacity:0.5}}>Aucune déscription pour le moment</p> :
+                        isDescriptionEmpty() ?
+                            <p style={{ opacity: 0.5 }}>Aucune déscription pour le moment</p> :
                             <p>{studentData.description}</p>
                     }
                 </Card>
