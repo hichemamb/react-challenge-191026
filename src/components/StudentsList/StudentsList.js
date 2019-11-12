@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch, useStore } from 'react-redux';
 
 import './StudentsList.scss';
 import Header from '../_shared/Header/Header';
 import ItemStudents from '../_shared/ItemStudents/ItemStudents';
 import { studentsList } from "../../utils/api";
+import { addStudents } from "../../action";
+import { Link } from "react-router-dom";
 
 const StudentsList = () => {
-   
+
+   //const students = useSelector(state => state.studentsList);
+   const [loading, setLoading] = useState(true);
+   const [students, setStudents] = useState([]);
+   const dispatch = useDispatch();
+   const store = useStore();
+
    useEffect(() => {
       studentsList().then(res => {
-         console.log(res)
+         dispatch(addStudents(res))
+         setStudents(store.getState().studentsList)
+         setLoading(false);
       })
-   });
-   const studentsName = ['Nancy Campbell', 'Sofia Hanna', 'Nino Lam', 'Maxime Charpentier', 'Mathieu Blok', 'Jay Dogo', 'Joe Texeira', 'Antoine Beaudoire', 'Thomas Franja', 'Hichem AMAR BENSABER', 'Thomas Deruel'];
+   }, []);
    return (
       <div>
          <Header />
@@ -21,13 +30,13 @@ const StudentsList = () => {
             <h1 className="students__title"><strong>Liste des étudiants</strong></h1>
             <div className="studentsItem">
                <ul>
-                  {studentsName.map((name, alt) => {
+                  {students.map((student, alt) => {
                      return (
-                        <a href="/" key={alt} className="studentsItem__link">
+                        <Link to={"student-view/" + student.id} key={alt} className="studentsItem__link">
                            <li className="studentsItem__list">
-                              <ItemStudents name={name} alt={alt} />
+                              <ItemStudents name={`${student.firstname} ${student.lastname}`} alt={student.id} />
                            </li>
-                        </a>
+                        </Link>
                      )
                   })}
                </ul>
