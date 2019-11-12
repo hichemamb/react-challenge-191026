@@ -7,10 +7,10 @@ const userInfos = {
    promotion: "",
    description: "",
    password: "",
-   skills: [{skill: "", mark: ""}]
+   skills: [{skill: "", mark: ""}],
 };
 
-const studentsReducer = (state = userInfos, action) => {
+const studentsReducer = (state = userInfos, action, userLogin) => {
    switch(action.type){
       case HANDLE_CHANGE:
          const actualName = action.name;

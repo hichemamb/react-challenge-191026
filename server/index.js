@@ -10,7 +10,6 @@ const fileUpload = require('express-fileupload');
 const routerAuth = require('./routes/auth');
 const routerProfile = require('./routes/profile');
 const routerList = require('./routes/list');
-const routerLogin = require('./routes/login');
 const routerUpload = require('./routes/upload');
 
 app.use(cors());
@@ -31,7 +30,7 @@ require('./config/passport')(passport);
 app.use('/', routerAuth);
 app.use('/', routerProfile);
 app.use('/', routerList);
-app.use('/', routerLogin);
+//app.use('/', routerLogin);
 app.use('/', routerUpload);
 
 db.sequelize.sync().then(() => {
