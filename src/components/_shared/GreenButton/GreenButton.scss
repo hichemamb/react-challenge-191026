@@ -1,0 +1,10 @@
+@import "../style/variables";
+
+.greenButton {
+  height: 40px;
+  background-color: $greenHetic;
+  border: none;
+  border-radius: 5px;
+  color: $white;
+  padding: 10px;
+}

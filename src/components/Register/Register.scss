@@ -1,7 +1,19 @@
+@import '../_shared/style/variables';
+
 .register {
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 50px;
+
+  &-skills {
+    &__button {
+      margin-top: 20px;
+      border : 1px solid $mediumGray;
+      color: $black;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
 }
