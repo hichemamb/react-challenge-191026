@@ -4,15 +4,16 @@ const env = require('../config/env');
 const {hashPw, checkPw} = require('../config/crypt');
 exports.register = (req, res) => {
 
-   const {firstname, lastname, email, promotion, description, password, skills} = req.body;
+   const {picture, firstname, lastname, email, promotion, description, password, skills} = req.body;
 
-   if (!email || !password || !firstname || !lastname) {
+   if (!email || !password || !firstname || !lastname || !promotion) {
       res.send('Invalid details');
    } else {
       return db.sequelize.transaction(t => {
          return db.users.findOne({where: {email}}, {transaction: t}).then(user => {
             if (user === null) {
                return db.users.create({
+                  picture,
                   firstname,
                   lastname,
                   email,
