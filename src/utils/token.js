@@ -6,8 +6,7 @@ exports.getToken = getToken;
 exports.setToken = (newToken) => localStorage.setItem('token', JSON.stringify(newToken));
 
 exports.decodeToken = () => {
-    var jwtDecode = require('jwt-decode');
-    const { id } = jwtDecode(getToken());
+    const { id } = require('jwt-decode')(getToken());
     return id;
 };
 
