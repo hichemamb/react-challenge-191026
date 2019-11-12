@@ -3,3 +3,4 @@ export const HANDLE_CHANGE_INDEX = "HANDLE_CHANGE_INDEX";
 export const ADD_PICTURE = "ADD_PICTURE";
 export const ADD_SKILL = "ADD_SKILL";
 export const ADD_STUDENTS = "ADD_STUDENTS";
+export const UPDATE_STUDENT = "UPDATE_STUDENT";

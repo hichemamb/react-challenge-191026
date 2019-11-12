@@ -1,4 +1,4 @@
-import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS } from '../constants/action-types';
+import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS, UPDATE_STUDENT } from '../constants/action-types';
 
 const userInfos = {
    picture: "",
@@ -29,6 +29,11 @@ export const studentsReducer = (state = userInfos, action) => {
          return {
             ...state,
             [action.name]: action[actualName]
+         };
+
+      case UPDATE_STUDENT:
+         return {
+            ...action.student
          };
 
       case HANDLE_CHANGE_INDEX:

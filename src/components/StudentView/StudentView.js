@@ -1,32 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./StudentView.scss";
 import { useParams } from "react-router-dom";
 import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import ButtonBack from '../_shared/ButtonBack/ButtonBack';
-
-const studentData = {
-    firstname: 'Sarah',
-    lastname: 'Vidal',
-    promotion: 'Web3 P2020',
-    picture: "http://teenlife.blogs.pressdemocrat.com/files/2010/09/codding.jpg",
-    birthday: '08/12/1996',
-    email: 'Sarah.Vidal@hetic.net',
-    skills: ['CSS', 'HTML'],
-    description: '',
-}
-
-const fullName = studentData.firstname + ' ' + studentData.lastname;
-const SkillsList = () => studentData.skills.map((skill, id) => <li key={id}>{skill}</li>)
-const isDescriptionEmpty = () => studentData.description === '' ? true : false;
+import { getStudentById } from "../../utils/api";
+import { updateStudent } from "../../action";
+import { useSelector, useDispatch, useStore } from 'react-redux';
 
 const StudentView = () => {
     let { id } = useParams();
+    
+    const [loading, setLoading] = useState(true);
+    const [student, setStudent] = useState({
+        picture: "",
+        lastname: "",
+        firstname: "",
+        email: "",
+        promotion: "",
+        description: "",
+        skills: [{ skill: "", mark: "" }]
+    });
+    const dispatch = useDispatch();
+    const store = useStore();
+    const isDescriptionEmpty = () => student.description === '' ? true : false;
     useEffect(() => {
         // TODO
-        // make your request HERE :)
+        getStudentById(id).then(res => {
+            dispatch(updateStudent(res))
+            setStudent(store.getState().userInfos)
+        })
         console.log(id)
-    })
+    }, [])
     return (
         <div>
             <Header />
@@ -35,24 +40,23 @@ const StudentView = () => {
                     <section className="studentview-profil">
                         <div className="studentview-profil-img">
                             <div className="studentview-profil-img-container">
-                                <img src={studentData.picture} alt="face" />
+                                <img src={student.picture} alt="face" />
                             </div>
                         </div>
                         <div className="studentview-profil-container">
                             <div className="studentview-profil-container-nameandpromo">
-                                <h1>{fullName}</h1>
-                                <p>{studentData.promotion}</p>
+                                <h1>{student.firstname + ' ' + student.lastname}</h1>
+                                <p>{student.promotion}</p>
                             </div>
                             <div className="studentview-profil-container-moreinfo">
                                 <div className="studentview-profil-container-moreinfo-informations">
                                     <h2>Informations</h2>
-                                    <p>{studentData.email}</p>
-                                    <p>{studentData.birthday}</p>
+                                    <p>{student.email}</p>
                                 </div>
                                 <div className="studentview-profil-container-moreinfo-skills">
                                     <h2>Compétences</h2>
                                     <ul>
-                                        <SkillsList />
+                                        à faire
                                     </ul>
                                 </div>
                             </div>
@@ -63,7 +67,7 @@ const StudentView = () => {
                     {
                         isDescriptionEmpty() ?
                             <p style={{ opacity: 0.5 }}>Aucune déscription pour le moment</p> :
-                            <p>{studentData.description}</p>
+                            <p>{student.description}</p>
                     }
                 </Card>
             </div>
