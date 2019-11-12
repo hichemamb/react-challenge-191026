@@ -26,6 +26,19 @@ exports.studentsList = () => {
    });
 };
 
+exports.getStudentById= (id) => {
+   return fetch('http://localhost:8080/list/'+id,{
+      method: 'GET',
+      headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer ' + getToken()
+      }
+   }).then(res => {
+      return res.json();
+   })
+};
+
 exports.uploadPicture= (formData) => {
    return fetch('http://localhost:8080/upload',{
       method: 'POST',
