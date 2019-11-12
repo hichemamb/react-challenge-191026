@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL} from '../constants/action-types';
+import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS } from '../constants/action-types';
 
 const userInfos = {
    picture: "",
@@ -8,11 +8,22 @@ const userInfos = {
    promotion: "",
    description: "",
    password: "",
-   skills: [{skill: "", mark: ""}]
+   skills: [{ skill: "", mark: "" }]
 };
 
-const studentsReducer = (state = userInfos, action) => {
-   switch(action.type){
+export const studentsListReducer = (state = [], action) => {
+   switch (action.type) {
+      case ADD_STUDENTS:
+         return [
+            ...action.students
+         ]
+      default:
+         return state;
+   }
+}
+
+export const studentsReducer = (state = userInfos, action) => {
+   switch (action.type) {
       case HANDLE_CHANGE:
          const actualName = action.name;
          return {
@@ -24,7 +35,7 @@ const studentsReducer = (state = userInfos, action) => {
          const actualNameIndex = action.name;
          state.skills[action.index][action.name] = action[actualNameIndex];
          return {
-           ...state,
+            ...state,
          };
 
       case ADD_PICTURE:
@@ -42,5 +53,3 @@ const studentsReducer = (state = userInfos, action) => {
          return state;
    }
 };
-
-export default studentsReducer;
