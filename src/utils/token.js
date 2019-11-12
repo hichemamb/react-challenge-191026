@@ -1,5 +1,14 @@
-exports.getToken = () => localStorage.getItem('token') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzYzgxMTkyLTg0ZDUtNDQxOS04ZmViLTNhYmY4ZGM2N2U2YyIsImlhdCI6MTU3MzQ4MTI2OSwiZXhwIjoxNjA1MDM4MTk1fQ.-rTJZoVOwHZdfwhEiHG-aMRxdz32dvl2z-no8d0iObg';
 
-exports.setToken = (newToken) => localStorage.setItem('token',JSON.stringify(newToken));
+const getToken = () => localStorage.getItem('token') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjgzNWQ5LWZiMGMtNDJkYi04YmYzLTU0MmJkOWJiNGZjYyIsImlhdCI6MTU3MzU2MDkwNCwiZXhwIjoxNjA1MTE3ODMwfQ.Mm6p8PdU-TeDVvwNnxdN8NCS3IGk9-il_5TEbyIk1qI';
+
+exports.getToken = getToken;
+
+exports.setToken = (newToken) => localStorage.setItem('token', JSON.stringify(newToken));
+
+exports.decodeToken = () => {
+    var jwtDecode = require('jwt-decode');
+    const { id } = jwtDecode(getToken());
+    return id;
+};
 
 exports.removeToken = () => localStorage.removeItem('token');
