@@ -26,8 +26,8 @@ exports.studentsList = () => {
    });
 };
 
-exports.getStudentById= (id) => {
-   return fetch('http://localhost:8080/list/'+id,{
+exports.getStudentById = (id) => {
+   return fetch('http://localhost:8080/list/' + id, {
       method: 'GET',
       headers: {
          'Accept': 'application/json',
@@ -39,8 +39,8 @@ exports.getStudentById= (id) => {
    })
 };
 
-exports.uploadPicture= (formData) => {
-   return fetch('http://localhost:8080/upload',{
+exports.uploadPicture = (formData) => {
+   return fetch('http://localhost:8080/upload', {
       method: 'POST',
       body: formData,
    }).then(res => {
