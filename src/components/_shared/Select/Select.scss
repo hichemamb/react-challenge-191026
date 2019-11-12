@@ -1,0 +1,12 @@
+@import '../style/variables';
+
+.select {
+  display:flex;
+  margin-top: 20px;
+  &-item {
+    margin-right: 20px;
+  }
+  &-label {
+    color: $black;
+  }
+}

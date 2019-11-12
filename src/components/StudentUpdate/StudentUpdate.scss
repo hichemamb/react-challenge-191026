@@ -19,16 +19,6 @@
             width: 33%;
             min-width: 200px;
         }
-        &__gender {
-            width: 20%;
-            min-width: 200px;
-            input {
-                margin-right: 4px;
-                &:not(:first-of-type){
-                    margin-left: 12px;
-                }
-            }
-        }
     }
     h2 {
         font-size: 16px;

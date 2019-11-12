@@ -14,23 +14,23 @@
 .studentsItem {
     &__link {
         text-decoration: none;
-    }
-    &__list {
         height: auto;
+        width: 100%;
         background-color: #F8F9FA;
         border-radius: 5px;
         padding: 15px 0 15px 32px;
         margin-bottom: 20px;
         position: relative;
         transition: all 350ms ease-out;
+        justify-content: normal;
         &:hover {
             background-color: rgba(63, 210, 146, .4);
             transform: scale(1);
             opacity: 0.6;
             box-shadow: 2px 2px 8px -1px rgba(0, 0, 0, 0.2);
-        }
         &:hover img {
             visibility: visible;
+            }
         }
     }
 }

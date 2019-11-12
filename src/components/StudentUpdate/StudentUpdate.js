@@ -48,13 +48,6 @@ const StudentUpdate = () => {
                             </div>
 
                         </div>
-                        <div className="studentupdate-profil__gender">
-                            <h2>Genre</h2>
-                            <input type="radio" name="sexe" value="0" checked />
-                            <label for="huey">Homme</label>
-                            <input type="radio" name="sexe" value="1" checked />
-                            <label for="sexe">Femme</label>
-                        </div>
                     </div>
                 </Card>
                 <Card title="Cursus" width="75%" UpdateComponent={buttonUpdate}>
