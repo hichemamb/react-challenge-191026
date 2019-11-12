@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL} from "../constants/action-types";
+import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS } from "../constants/action-types";
 
 export const handleChange = (content, value) => {
     return {
@@ -28,5 +28,12 @@ export const addSkill = (elementToAdd) => {
     return {
         type: ADD_SKILL,
         payload: elementToAdd
+    }
+};
+
+export const addStudents = (students) => {
+    return {
+        type: ADD_STUDENTS,
+        students,
     }
 };
