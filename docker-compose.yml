@@ -1,0 +1,45 @@
+version: "3"
+services:
+  database:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: challenge_hetic_list
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    volumes:
+      - ./mydata:/var/lib/mysql
+    networks:
+      - mynetwork
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.9
+    ports:
+      - 8000:80
+    environment:
+      PMA_HOST: database
+      PMA_USER: user
+      PMA_PASSWORD: pass
+    networks:
+      - mynetwork
+
+  api:
+    image: hichemamb/challenge-server:latest
+    ports:
+      - 8080:3000
+    environment:
+      DB_HOST: database
+      DB_USER: user
+      DB_PASSWORD: 'pass'
+      DB_NAME: 'challenge_hetic_list'
+    networks:
+      - mynetwork
+
+  front:
+    image: hichemamb/challenge-front:latest
+    ports:
+      - 3000:80
+
+networks:
+  mynetwork:
+
