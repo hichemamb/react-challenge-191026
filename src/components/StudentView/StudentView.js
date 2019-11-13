@@ -23,9 +23,8 @@ const StudentView = () => {
     });
     const dispatch = useDispatch();
     const store = useStore();
-    const isDescriptionEmpty = () => student.description === '' ? true : false;
+    const isDescriptionEmpty = () => student.description === '';
     useEffect(() => {
-        // TODO
         getStudentById(id).then(res => {
             dispatch(updateStudent(res))
             setStudent(store.getState().userInfos)
