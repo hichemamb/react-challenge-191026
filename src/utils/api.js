@@ -47,3 +47,20 @@ exports.uploadPicture = (formData) => {
       return res.json();
    })
 };
+
+exports.updateData = (userData) => {
+   return fetch('http://localhost:8080/profile', {
+      method: 'PUT',
+      headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer ' + getToken()
+      },
+      body: JSON.stringify(userData)
+   }).then(res => {
+      console.log('mise à jour effectué.')
+      return res.json();
+   }).catch(err => {
+      console.log('Une erreur est survenue: ', err);
+   })
+};
