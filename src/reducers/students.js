@@ -1,4 +1,4 @@
-import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS, UPDATE_STUDENT } from '../constants/action-types';
+import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS, UPDATE_STUDENT, ADD_ERROR, ADD_ERROR_EMPTY} from '../constants/action-types';
 
 const userInfos = {
    picture: "",
@@ -8,7 +8,9 @@ const userInfos = {
    promotion: "",
    description: "",
    password: "",
-   skills: [{ skill: "", mark: "" }]
+   skills: [{ skill: "", mark: "" }],
+   isLoggin: "",
+   isEmpty: ""
 };
 
 export const studentsListReducer = (state = [], action) => {
@@ -54,6 +56,18 @@ export const studentsReducer = (state = userInfos, action) => {
             ...state,
             skills: [...state.skills, action.payload]
          };
+
+      case ADD_ERROR:
+         return {
+            ...state,
+            isLoggin: true
+         }
+
+      case ADD_ERROR_EMPTY:
+         return {
+            ...state,
+            isEmpty: true
+      }
       default:
          return state;
    }
