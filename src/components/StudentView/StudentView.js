@@ -7,12 +7,11 @@ import ButtonBack from '../_shared/ButtonBack/ButtonBack';
 import Picture from "../_shared/Picture/Picture";
 import { getStudentById } from "../../utils/api";
 import { updateStudent } from "../../action";
-import { useSelector, useDispatch, useStore } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 
 const StudentView = () => {
     let { id } = useParams();
-    
-    const [loading, setLoading] = useState(true);
+
     const [student, setStudent] = useState({
         picture: "",
         lastname: "",
@@ -27,11 +26,11 @@ const StudentView = () => {
     const isDescriptionEmpty = () => student.description === '';
     useEffect(() => {
         getStudentById(id).then(res => {
-            dispatch(updateStudent(res))
+            dispatch(updateStudent(res));
             setStudent(store.getState().userInfos)
-        })
+        });
         console.log(id)
-    }, [])
+    }, []);
     return (
         <div>
             <Header />
@@ -52,7 +51,12 @@ const StudentView = () => {
                                 <div className="studentview-profil-container-moreinfo-skills">
                                     <h2>Compétences</h2>
                                     <ul>
-                                        à faire
+                                        {student.skills.map((item, index) =>
+                                            <li key={index} className="studentview-profil-container-moreinfo-skills__item"><span
+                                               className="studentview-profil-container-moreinfo-skills__item--bold">{item.skill} </span>
+                                                ({item.mark})
+                                            </li>
+                                        )}
                                     </ul>
                                 </div>
                             </div>
