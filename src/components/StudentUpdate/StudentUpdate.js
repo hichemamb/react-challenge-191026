@@ -8,6 +8,7 @@ import Input from "../_shared/Input/Input";
 // import Chips from "../_shared/Chips/Chips";
 import Select from "../_shared/Select/Select";
 import PictureUploader from "../_shared/PictureUploader/PictureUploader";
+import ButtonModified from "../_shared/ButtonModified/ButtonModified";
 
 import { getStudentById } from "../../utils/api";
 import { updateStudent } from "../../action";
@@ -15,6 +16,7 @@ import { useSelector, useDispatch, useStore } from 'react-redux';
 import { handleChange, handleChangeWithIndex, addSkill } from '../../action/index';
 import { decodeToken } from "../../utils/token";
 import { updateData } from "../../utils/api";
+import img from "../../assets/img/edit.svg";
 
 const StudentUpdate = () => {
     const userInfos = useSelector(state => state.userInfos);
@@ -24,7 +26,7 @@ const StudentUpdate = () => {
 
     const updateButton = () => {
         return (
-            <button onClick={()=>updateData(userInfos)}>Modifier</button>
+            <ButtonModified onClick={()=>updateData(userInfos)}/>
         )
     }
     useEffect(() => {
@@ -54,10 +56,11 @@ const StudentUpdate = () => {
             <div className="studentupdate">
                 <Card title="Profil étudiant" width="75%" ModifiedComponent={updateButton}>
                     <div className="studentupdate-profil">
-                        <div className="studentupdate-profil-picandbirthday">
-                            <div className="studentupdate-profil-picandbirthday__picture">
-                                <PictureUploader />
-                            </div>
+
+                        <div className="studentupdate-profil-picandbirthday__picture">
+                            <PictureUploader>
+                                <h2>Modifier votre photo</h2>
+                            </PictureUploader>
                         </div>
                         <div className="studentupdate-profil-nameandemail">
                             <div className="studentupdate-profil-nameandemail__names">

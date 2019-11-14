@@ -22,5 +22,10 @@
       border: none;
       border-bottom: 1px solid $mediumGray;
     }
+    &-modified {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
