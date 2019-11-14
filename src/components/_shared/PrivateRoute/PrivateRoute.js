@@ -10,7 +10,7 @@ const PrivateRoute = ({ component, ...props }) => {
         !getToken() ?
             <Redirect
                 to={{
-                    pathname: "/login",
+                    pathname: "/",
                 }} />
             :
             <Route {...props} component={component} />

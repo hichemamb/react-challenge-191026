@@ -11,6 +11,7 @@ import Login from "./components/Login/Login";
 import StudentsList from "./components/StudentsList/StudentsList";
 import StudentView from "./components/StudentView/StudentView";
 import StudentUpdate from "./components/StudentUpdate/StudentUpdate";
+import PrivateRoute from './components/_shared/PrivateRoute/PrivateRoute';
 
 // import { getToken } from "./utils/token";
 
@@ -27,9 +28,9 @@ function App() {
           )} */}
           <Route exact path="/" component={Login}/>
           <Route exact path="/register" component={Register}/>
-          <Route exact path="/student/profil" component={StudentUpdate}/>
-          <Route exact path="/students-list" component={StudentsList}/>
-          <Route exact path="/student-view/:id" component={StudentView} />
+          <PrivateRoute exact path="/student/profil" component={StudentUpdate}/>
+          <PrivateRoute exact path="/students-list" component={StudentsList}/>
+          <PrivateRoute exact path="/student-view/:id" component={StudentView} />
         </Switch>
       </Router>
     </div>
