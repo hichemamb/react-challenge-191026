@@ -64,3 +64,18 @@ exports.updateData = (userData) => {
       console.log('Une erreur est survenue: ', err);
    })
 };
+
+exports.login = (userData) => {
+  return fetch('http://localhost:8080/login', {
+     method: 'post',
+     headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(userData)
+  }).then(res => {
+   return res.json();
+  }).catch(err => {
+   console.log(err)
+  });
+};

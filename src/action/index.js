@@ -1,4 +1,4 @@
-import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS, UPDATE_STUDENT } from "../constants/action-types";
+import { HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_STUDENTS, UPDATE_STUDENT, ADD_ERROR, ADD_ERROR_EMPTY } from "../constants/action-types";
 
 export const handleChange = (content, value) => {
     return {
@@ -42,5 +42,17 @@ export const updateStudent = (student) => {
     return {
         type: UPDATE_STUDENT,
         student,
+    }
+};
+
+export const addError = () => {
+    return {
+        type: ADD_ERROR
+    }
+};
+
+export const addErrorEmpty = () => {
+    return {
+        type: ADD_ERROR_EMPTY
     }
 };
