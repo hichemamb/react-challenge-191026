@@ -7,10 +7,10 @@ import ItemStudents from '../_shared/ItemStudents/ItemStudents';
 import { studentsList } from "../../utils/api";
 import { addStudents } from "../../action";
 import { Link } from "react-router-dom";
+import {getToken} from '../../utils/token';
 
 const StudentsList = () => {
 
-   //const students = useSelector(state => state.studentsList);
    const [loading, setLoading] = useState(true);
    const [students, setStudents] = useState([]);
    const dispatch = useDispatch();
@@ -18,8 +18,8 @@ const StudentsList = () => {
 
    useEffect(() => {
       studentsList().then(res => {
-         dispatch(addStudents(res))
-         setStudents(store.getState().studentsList)
+         dispatch(addStudents(res));
+         setStudents(store.getState().studentsList);
          setLoading(false);
       })
    }, []);

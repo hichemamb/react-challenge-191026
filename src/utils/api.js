@@ -17,7 +17,7 @@ exports.studentsList = () => {
       headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
-         'Authorization': 'Bearer ' + getToken()
+         'Authorization': `Bearer ${JSON.parse(getToken())}`
       },
    }).then(res => {
       return res.json();
@@ -32,7 +32,7 @@ exports.getStudentById = (id) => {
       headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
-         'Authorization': 'Bearer ' + getToken()
+         'Authorization': `Bearer ${JSON.parse(getToken())}`
       }
    }).then(res => {
       return res.json();
@@ -54,7 +54,7 @@ exports.updateData = (userData) => {
       headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
-         'Authorization': 'Bearer ' + getToken()
+         'Authorization': `Bearer ${JSON.parse(getToken())}`
       },
       body: JSON.stringify(userData)
    }).then(res => {

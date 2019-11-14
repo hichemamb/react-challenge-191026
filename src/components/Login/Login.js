@@ -29,7 +29,7 @@ const Login = () => {
               dispatch(addErrorEmpty());
             } 
             else if(res.token) {
-               setToken(res.token)
+               setToken(res.token);
                browserHistory.push('/students-list');
                window.location.reload();
             } 
