@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material/react-snackbar": "^0.15.0",
     "jwt-decode": "^2.2.0",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
