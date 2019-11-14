@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
 import ButtonBack from '../_shared/ButtonBack/ButtonBack';
+import Picture from "../_shared/Picture/Picture";
 import { getStudentById } from "../../utils/api";
 import { updateStudent } from "../../action";
 import { useSelector, useDispatch, useStore } from 'react-redux';
@@ -37,11 +38,7 @@ const StudentView = () => {
             <div className="studentview">
                 <Card title="Profil étudiant" width="75%">
                     <section className="studentview-profil">
-                        <div className="studentview-profil-img">
-                            <div className="studentview-profil-img-container">
-                                <img src={student.picture} alt="face" />
-                            </div>
-                        </div>
+                        <Picture src={student.picture} alt="face"/>
                         <div className="studentview-profil-container">
                             <div className="studentview-profil-container-nameandpromo">
                                 <h1>{student.firstname + ' ' + student.lastname}</h1>
