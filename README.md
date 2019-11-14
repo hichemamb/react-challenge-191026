@@ -51,7 +51,18 @@ nodemon index.js
 
 ## Project Team
 
+> Thomas FRANJA
+> Thomas DERUEL
 > Hichem AMAR BENSABER
+> Antoine BEAUDOIRE
+> Mickael DE JESUS
+> Sophia GOUNANI
+> Nancy CAMPBELL
+> Nino LAMOUREUX
+> Maxime CHARPENTIER
+> Jean-Yves DOGO
+> José GUIGNERY-TEIXEIRA
+> Mathieu BLOK
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
