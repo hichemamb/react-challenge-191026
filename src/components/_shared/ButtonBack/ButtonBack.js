@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const ButtonBack = ({label="retour", to="/students-list"}) => {
     return (
-        <Link to={to}>
+        <Link className="buttonback" to={to}>
             {label}
         </Link>
     )
