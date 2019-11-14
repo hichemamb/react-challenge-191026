@@ -49,7 +49,7 @@
             }
             &-moreinfo{
                 display:flex;
-                width: 80%;
+                width: 100%;
                 justify-content: space-between;
                 h2 {
                     font-size: 18px;
@@ -58,7 +58,11 @@
                     color: $darkGray;
                     margin: 8px 0;
                 }
+                &-informations {
+                    width: 50%;
+                }
                 &-skills {
+                    width: 50%;
                     ul{
                         display:flex;
                         margin-top: 8px;
@@ -71,6 +75,13 @@
                                 content: '#';
                                 display: inline-block;
                             }
+                        }
+                    }
+                    &__item {
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        &--bold {
+                            font-weight: bold;
                         }
                     }
                 }
