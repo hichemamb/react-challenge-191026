@@ -50,7 +50,7 @@ const StudentView = () => {
                                 </div>
                                 <div className="studentview-profil-container-moreinfo-skills">
                                     <h2>Compétences</h2>
-                                    <ul>
+                                    <ul className="studentview-profil-container-moreinfo-skills-list">
                                         {student.skills.map((item, index) =>
                                             <li key={index} className="studentview-profil-container-moreinfo-skills__item"><span
                                                className="studentview-profil-container-moreinfo-skills__item--bold">{item.skill} </span>

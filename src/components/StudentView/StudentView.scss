@@ -77,6 +77,10 @@
                             }
                         }
                     }
+                    &-list {
+                        display: flex;
+                        flex-direction: column;
+                    }
                     &__item {
                         margin-top: 5px;
                         margin-bottom: 5px;

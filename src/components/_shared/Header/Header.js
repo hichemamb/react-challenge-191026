@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Header.scss';
 import Logo from '../../../assets/img/logo.svg';
+import Dna from '../../../assets/img/dna.svg';
 import Picture from '../../_shared/Picture/Picture';
 import {getToken, decodeToken} from '../../../utils/token';
 import {Link} from 'react-router-dom';
@@ -42,6 +43,7 @@ const Header = () => {
          {setLogoLink()}
          <div className="header-right">
             <h1 className="header-right__title">HETIC STUDENTS</h1>
+            <img src={Dna} alt="Hourglass Icon"/>
          </div>
          {
             getToken() && (
