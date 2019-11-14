@@ -33,6 +33,17 @@ exports.putUserInfos = (req, res) => {
                .catch(error => {
                   res.status(400).json({ incorrect: 'error update, please retry', error })
                })
+            const skills = req.body.skills.filter(skill => skill.id);
+            let promises = [];
+            for (const skill of skills) {
+               promises.push(db.skills.update(
+                  {
+                     skill: skill.skill,
+                     mark: skill.mark,
+                  }, { where: { id: skill.id } }))
+            }
+            Promise.all(promises).catch(err => console.log('error:', err))
+
          }
          catch (err) {
             const listKeysUndefined = parametersBody.filter(p => !parametersUser.includes(p))

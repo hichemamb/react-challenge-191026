@@ -13,8 +13,7 @@ const Header = () => {
    const dispatch = useDispatch();
    useEffect(() => {
       if (getToken()) {
-         
-         getStudentById(getToken()).then(res => {
+         getStudentById(decodeToken()).then(res => {
             dispatch(updateStudent(res))
          })
       }
@@ -27,11 +26,15 @@ const Header = () => {
          <div className="header-right">
             <h1 className="header-right__title">HETIC STUDENTS</h1>
          </div>
-         <div className="header-picture">
-            <Link to="/student/profil">
-               <Picture src={userInfos.picture} width={50} height={50} />
-            </Link>
-         </div>
+         {
+            getToken() && (
+               <div className="header-picture">
+                  <Link to="/student/profil">
+                     <Picture src={userInfos.picture} width={50} height={50} />
+                  </Link>
+               </div>
+            )
+         }
       </div>
    );
 };
