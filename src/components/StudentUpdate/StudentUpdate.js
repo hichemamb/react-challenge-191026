@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./StudentUpdate.scss";
+import '@material/react-snackbar/dist/snackbar.css';
+import { Snackbar } from '@material/react-snackbar';
 
 import Header from '../_shared/Header/Header';
 import Card from '../_shared/Card/Card';
@@ -16,25 +18,32 @@ import { useSelector, useDispatch, useStore } from 'react-redux';
 import { handleChange, handleChangeWithIndex, addSkill } from '../../action/index';
 import { decodeToken } from "../../utils/token";
 import { updateData } from "../../utils/api";
-import img from "../../assets/img/edit.svg";
 
 const StudentUpdate = () => {
     const userInfos = useSelector(state => state.userInfos);
     const dispatch = useDispatch();
     const store = useStore();
     const [load, setLoad] = useState(true);
-
-    const updateButton = () => {
-        return (
-            <ButtonModified onClick={()=>updateData(userInfos)}/>
-        )
+    const [open, setOpen] = useState(false);
+    const [message, setMessage] = useState(false);
+    const onUpdate = () => {
+        updateData(userInfos)
+            .then(res => {
+                ValidateSnackbar()
+            })
+            .catch(err => {
+                failureSnackbar()
+            })
     }
-    useEffect(() => {
-        getStudentById(decodeToken()).then(res => {
-            dispatch(updateStudent(res))
-            setLoad(false)
-        })
-    }, [])
+    function ValidateSnackbar(){
+        setOpen(true)
+        setMessage("Vos données ont été mises à jours");
+    }
+    function  failureSnackbar(){
+        setOpen(true)
+        setMessage("Une erreur est survenue, veuillez recommencer");
+    }
+    const UpdateButton = () => <ButtonModified onClick={onUpdate} />
 
     const onChange = event => {
         dispatch(handleChange(event.target.name, event.target.value))
@@ -47,14 +56,22 @@ const StudentUpdate = () => {
     const onChangeWithIndex = index => event => {
         dispatch(handleChangeWithIndex(event.target.name, event.target.value, index))
     };
+
+    useEffect(() => {
+        getStudentById(decodeToken()).then(res => {
+            dispatch(updateStudent(res))
+            setLoad(false)
+        })
+    }, [])
     if (load) {
         return <p>chargement</p>
     }
     return (
         <div>
+            <Snackbar open={open} message="Vos données ont été mises à jours" variant="success" actionText="dismiss" onClose={()=>setOpen(false)}/>
             <Header />
             <div className="studentupdate">
-                <Card title="Profil étudiant" width="75%" ModifiedComponent={updateButton}>
+                <Card title="Profil étudiant" width="75%" ModifiedComponent={UpdateButton}>
                     <div className="studentupdate-profil">
 
                         <div className="studentupdate-profil-picandbirthday__picture">
@@ -80,7 +97,7 @@ const StudentUpdate = () => {
                         </div>
                     </div>
                 </Card>
-                <Card title="Cursus" width="75%" ModifiedComponent={updateButton}>
+                <Card title="Cursus" width="75%" ModifiedComponent={UpdateButton}>
                     <div className="studentupdate__cursus">
                         <h2>Ecrivez en quelques lignes votre parcours</h2>
                         <textarea placeholder="Décrivez votre cursus" name="description" value={userInfos.description} onChange={onChange}>
@@ -101,7 +118,7 @@ const StudentUpdate = () => {
                         <button className="studentupdate-other__plus">+</button>
                     </div>
                 </Card> */}
-                <Card title="Modifier ou Ajouter des compétences" width="75%" ModifiedComponent={updateButton}>
+                <Card title="Modifier ou Ajouter des compétences" width="75%" ModifiedComponent={UpdateButton}>
                     {userInfos.skills.map((element, index) =>
                         <div key={index} className="register-skills">
                             <Select skillValue={element.skill} markValue={element.mark} onChangeValue={onChangeWithIndex(index)} width="200px" />
