@@ -23,6 +23,7 @@
         position: relative;
         transition: all 350ms ease-out;
         justify-content: normal;
+        display: block;
         &:hover {
             background-color: rgba(63, 210, 146, .4);
             transform: scale(1);
