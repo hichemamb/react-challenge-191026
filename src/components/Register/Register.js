@@ -56,7 +56,7 @@ const Register = () => {
                )}
                <button className="register-skills__button" onClick={onAddSkill}>Ajouter une nouvelle compétence</button>
             </Card>
-            <GreenButton clickToRegister={onRegister} content="ENREGISTRER" redirection="/login" width="250px"/>
+            <GreenButton clickToRegister={onRegister} content="ENREGISTRER" redirection="/" width="250px"/>
          </div>
       </div>
    );
