@@ -52,7 +52,7 @@ const PictureUploader = ({ children = defaultLabel()}) => {
                <img
                   className={'upload-item-default ' + classLoading()}
                   name="picture"
-                  alt=""
+                  alt="picture"
                   src={require('../../../assets/img/default.png')}
                /> :
                <div className="upload-item-selectedContainer">
