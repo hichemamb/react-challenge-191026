@@ -43,10 +43,13 @@ nodemon index.js
   - 2 - Run MySQL wherever you want to (Terminal / MySQL Workbench / PhpMyAdmin ...) and create a DATABASE with the name you made in the environment variables in env.js.
 
 ## REST API
-- /register => register an user and store data to database (return data user object)
-- /login => authenticate an user and return a JWT to get authorization
-- /list => return students
-- /list/:id => return student by id
+
+- [POST] /register => register an user and store data to database (return data user object)
+- [POST] /login => authenticate an user and return a JWT to get authorization
+- [GET] /list => return students list
+- [GET] /list/:id => return student by id
+- [PUT] /profile => update a registered user
+- [POST] /upload => upload picture to firebase storage
 
 ### DOCKER
 
