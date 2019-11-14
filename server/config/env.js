@@ -1,5 +1,5 @@
 module.exports = {
-   PORT: 3002,
+   PORT: 8080,
    DATABASE_NAME: 'challenge_hetic_list',
    DATABASE_USERNAME: 'root',
    DATABASE_PASSWORD: '',

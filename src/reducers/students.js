@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL} from '../constants/action-types';
+import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_ERROR} from '../constants/action-types';
 
 const userInfos = {
    picture: "",
@@ -9,9 +9,10 @@ const userInfos = {
    description: "",
    password: "",
    skills: [{skill: "", mark: ""}],
-};
+   isLoggin: ""
 
-const studentsReducer = (state = userInfos, action, userLogin) => {
+};
+const studentsReducer = (state = userInfos, action) => {
    switch(action.type){
       case HANDLE_CHANGE:
          const actualName = action.name;
@@ -38,6 +39,13 @@ const studentsReducer = (state = userInfos, action, userLogin) => {
             ...state,
             skills: [...state.skills, action.payload]
          };
+
+      case ADD_ERROR:
+         return {
+            ...state,
+            isLoggin: true
+         }
+
       default:
          return state;
    }

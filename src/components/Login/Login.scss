@@ -48,5 +48,15 @@
     font-weight: 500;
   }
 
-}
+  &-hide {
+  display: none;
+  }
 
+  &-show {
+    display: block;
+    margin-top: 5%;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+  }
+}
