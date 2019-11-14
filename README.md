@@ -53,7 +53,7 @@ nodemon index.js
 
 ### DOCKER
 
-- - To run the app under docker : 
+- To run the app under docker : 
 ```bash
 docker-compose up
 ```
