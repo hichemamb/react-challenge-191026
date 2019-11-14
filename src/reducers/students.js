@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_ERROR} from '../constants/action-types';
+import {HANDLE_CHANGE, HANDLE_CHANGE_INDEX, ADD_PICTURE, ADD_SKILL, ADD_ERROR, ADD_ERROR_EMPTY} from '../constants/action-types';
 
 const userInfos = {
    picture: "",
@@ -9,8 +9,8 @@ const userInfos = {
    description: "",
    password: "",
    skills: [{skill: "", mark: ""}],
-   isLoggin: ""
-
+   isLoggin: "",
+   isEmpty: ""
 };
 const studentsReducer = (state = userInfos, action) => {
    switch(action.type){
@@ -46,6 +46,11 @@ const studentsReducer = (state = userInfos, action) => {
             isLoggin: true
          }
 
+      case ADD_ERROR_EMPTY:
+         return {
+            ...state,
+            isEmpty: true
+      }
       default:
          return state;
    }
