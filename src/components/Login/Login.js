@@ -1,9 +1,8 @@
 import React from 'react';
-import {useSelector, useDispatch, useStore } from 'react-redux';
-import {Link, Redirect,} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 import heticLogo from '../../assets/img/hetic-logo.png';
 
-import {push} from 'react-router-redux';
 import {browserHistory} from 'react-router'
 import {handleChange, addError, addErrorEmpty} from '../../action/index';
 import {login} from '../../utils/api';
@@ -16,18 +15,15 @@ const Login = () => {
 
    const userInfos = useSelector(state => state.userInfos);
    const dispatch = useDispatch();
-   const store = useStore();
-
 
    const onChange = event => {
        dispatch(handleChange(event.target.name, event.target.value))
     };
 
    const onLogin = () => {
-      const {email, password, isLoggin, isEmpty } = userInfos;
+      const {email, password} = userInfos;
 
       login({email, password})
-
          .then(res => {
             if (email === "" || password === "") {
               dispatch(addErrorEmpty());

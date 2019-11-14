@@ -26,6 +26,11 @@
     }
   
     &-form-sign-in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
       border: solid black 1px;
       border-radius:  5px;
       width: 466px;
@@ -37,6 +42,12 @@
     }
   
     &-creation-account {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      
       span {
         text-transform: uppercase;
         font-weight: 500;
