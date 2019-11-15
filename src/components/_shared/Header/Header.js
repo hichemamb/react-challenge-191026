@@ -10,7 +10,7 @@ import {getStudentById} from '../../../utils/api';
 const Header = () => {
    const [picture, setPicture] = useState(null);
    useEffect(() => {
-      if (picture === null) {
+      if (picture === null && getToken()) {
          getStudentById(decodeToken()).then(res => {
             setPicture(res.picture);
          });
