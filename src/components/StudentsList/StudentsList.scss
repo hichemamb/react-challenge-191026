@@ -1,3 +1,5 @@
+@import "../_shared/style/variables";
+
 .students {
     width: 75%;
     margin: 0 auto;
@@ -34,4 +36,57 @@
             }
         }
     }
+}
+
+.select-students {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    background: $lightGray;
+    background-image: none;
+}
+
+.select-students::-ms-expand {
+    display: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 300px;
+    height: 45px;
+    margin-bottom: 30px;
+    line-height: 3;
+    background: $lightGray;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.select-students {
+    flex: 1;
+    padding: 0 .5em;
+    color: $black;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.select::after {
+    color: white;
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: $greenHetic;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+.select:hover::after {
+    color: $white;
 }

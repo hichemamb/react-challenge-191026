@@ -1,6 +1,6 @@
 @import '../style/variables';
 
-.select {
+.select-skills {
   display:flex;
   margin-top: 20px;
   &-item {
@@ -9,4 +9,11 @@
   &-label {
     color: $black;
   }
+  &-input {
+    margin-top: 10px;
+    width: 250px;
+    height: 35px;
+    font-size: 14px;
+  }
 }
+
