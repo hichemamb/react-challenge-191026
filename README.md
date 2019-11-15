@@ -5,9 +5,11 @@
 It's a project which intended to list the members of HETIC's with them informations (firstname, name, email, promotion, description, skills ...)
 
 ## Features 
-- Authentication to the app
+- Authentication to the app (register/login) + JWT
 - List all students 
-- Update students informations
+- Filter students list by skill
+- Update profile informations
+- See students informations
 
 ## Design Model 
 https://www.figma.com/file/yiRn3Gi2zOlZytGhdeJPd9/React-challenge?node-id=13%3A76
