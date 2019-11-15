@@ -9,6 +9,9 @@ It's a project which intended to list the members of HETIC's with them informati
 - List all students 
 - Update students informations
 
+## Design Model 
+https://www.figma.com/file/yiRn3Gi2zOlZytGhdeJPd9/React-challenge?node-id=13%3A76
+
 ## Installation and use for client part
 
 - Clone the repository 
