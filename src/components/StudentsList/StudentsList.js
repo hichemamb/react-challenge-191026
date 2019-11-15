@@ -7,7 +7,6 @@ import ItemStudents from '../_shared/ItemStudents/ItemStudents';
 import {studentsList} from '../../utils/api';
 import {addStudents} from '../../action';
 import {Link} from 'react-router-dom';
-import GreenButton from '../_shared/GreenButton/GreenButton';
 
 const StudentsList = () => {
 

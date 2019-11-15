@@ -3,7 +3,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import heticLogo from '../../assets/img/hetic-logo.png';
 
-import {browserHistory} from 'react-router'
 import {handleChange, addError, addErrorEmpty} from '../../action/index';
 import {login} from '../../utils/api';
 import { setToken } from "../../utils/token";
@@ -11,7 +10,7 @@ import { setToken } from "../../utils/token";
 import './Login.scss';
 import Input from '../_shared/Input/Input';
 
-const Login = () => {
+const Login = (props) => {
 
    const userInfos = useSelector(state => state.userInfos);
    const dispatch = useDispatch();
@@ -30,8 +29,7 @@ const Login = () => {
             } 
             else if(res.token) {
                setToken(res.token);
-               browserHistory.push('/students-list');
-               window.location.reload();
+               props.history.push('/students-list');
             } 
             else {
               dispatch(addError());

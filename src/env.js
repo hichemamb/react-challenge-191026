@@ -1,6 +1,6 @@
 const prod = {
    url: {
-      BACKEND_URL: ''
+      BACKEND_URL: 'http://51.15.195.139:8080'
    }
 };
 
