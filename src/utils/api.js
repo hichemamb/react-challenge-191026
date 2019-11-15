@@ -1,7 +1,8 @@
 const { getToken } = require("./token");
+const URL = config.url.BACKEND_URL;
 
 exports.register = (userData) => {
-   return fetch('http://localhost:8080/register', {
+   return fetch(`${URL}/register`, {
       method: 'post',
       headers: {
          'Accept': 'application/json',
@@ -12,7 +13,7 @@ exports.register = (userData) => {
 };
 
 exports.studentsList = () => {
-   return fetch('http://localhost:8080/list', {
+   return fetch(`${URL}/list`, {
       method: 'get',
       headers: {
          'Accept': 'application/json',
@@ -27,7 +28,7 @@ exports.studentsList = () => {
 };
 
 exports.getStudentById = (id) => {
-   return fetch('http://localhost:8080/list/' + id, {
+   return fetch(`${URL}/list/${id}`, {
       method: 'GET',
       headers: {
          'Accept': 'application/json',
@@ -40,7 +41,7 @@ exports.getStudentById = (id) => {
 };
 
 exports.uploadPicture = (formData) => {
-   return fetch('http://localhost:8080/upload', {
+   return fetch(`${URL}/upload`, {
       method: 'POST',
       body: formData,
    }).then(res => {
@@ -49,7 +50,7 @@ exports.uploadPicture = (formData) => {
 };
 
 exports.updateData = (userData) => {
-   return fetch('http://localhost:8080/profile', {
+   return fetch(`${URL}/profile`, {
       method: 'PUT',
       headers: {
          'Accept': 'application/json',
@@ -58,7 +59,6 @@ exports.updateData = (userData) => {
       },
       body: JSON.stringify(userData)
    }).then(res => {
-      console.log('mise à jour effectué.')
       return res.json();
    }).catch(err => {
       console.log('Une erreur est survenue: ', err);
@@ -66,7 +66,7 @@ exports.updateData = (userData) => {
 };
 
 exports.login = (userData) => {
-  return fetch('http://localhost:8080/login', {
+  return fetch(`${URL}/login`, {
      method: 'post',
      headers: {
         'Accept': 'application/json',
