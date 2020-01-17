@@ -2,6 +2,7 @@ const db = require('../config/db');
 const jwt = require('jsonwebtoken');
 const env = require('../config/env');
 const {hashPw, checkPw} = require('../config/crypt');
+
 exports.register = (req, res) => {
 
    const {picture, firstname, lastname, email, promotion, description, password, skills} = req.body;
