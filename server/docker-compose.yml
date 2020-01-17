@@ -35,6 +35,7 @@ services:
       - ./:/home/node
       - /home/node/node_modules/
     environment:
+      PORT: 3000
       DB_HOST: database
       DB_USER: user
       DB_PASSWORD: pass
