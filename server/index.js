@@ -34,7 +34,7 @@ app.use('/', routerUpload);
 
 db.sequelize.sync().then(() => {
    app.listen(env.PORT, () => {
-      console.log('L\'application écoute le port 8080 :)');
+      console.log(`L\'application écoute le port ${env.PORT}, éclate toi :)`);
    });
 });
 
